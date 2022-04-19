@@ -6,12 +6,16 @@ function wordfrequency() {
      BEGIN { FS="[^a-zA-Z]+" } {
          for (i=1; i<=NF; i++) {
              word = $i
-             words[word]++
+             arr[word]++
          }
      }
      END {
-         for (w in words)
-              printf("Word: %s - Count of repetition: %d\n",w,words[w])
+         for (w in arr)
+         {
+             if (arr[w]>1){
+              printf("Word: %s - Count of repetition: %d\n",w,arr[w])
+              }
+              }
      } ' 
 }
 
